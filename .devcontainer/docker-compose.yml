@@ -1,0 +1,16 @@
+services:
+    ng-components:
+        container_name: ng-components
+
+        build:
+            context: .
+            dockerfile: Dockerfile
+
+        volumes:
+            - /home/.gemini/:/workspace/.gemini:cached
+            - ../:/workspace:cached
+            - /var/run/docker.sock:/var/run/docker.sock
+
+        env_file: .env
+
+        command: sleep infinity

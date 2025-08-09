@@ -1,0 +1,28 @@
+{
+	"name": "@akr/ng-components",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "ng-components",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "workbench.colorCustomizations": {
+                    "activityBar.background": "#410000",
+                    "activityBar.activeBorder": "#ffffff",
+                    "activityBar.activeBackground": "#5e0000",
+                    "activityBar.inactiveForeground": "#a5a5a5"
+                },
+                "editor.codeLens": true,
+                "npm.packageManager": "pnpm",
+                "geminicodeassist.updateChannel": "Insiders"
+            },
+            "extensions": [
+                "angular.ng-template",
+                "dbaeumer.vscode-eslint",
+                "EditorConfig.EditorConfig",
+                "Google.geminicodeassist"
+            ]
+        }
+    },
+    "remoteUser": "root"
+}
