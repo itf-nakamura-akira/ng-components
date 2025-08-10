@@ -22,9 +22,11 @@
                     "defaultConfiguration": "production"
                 },
                 "test": {
-                    "builder": "@angular/build:karma",
+                    "builder": "@angular/build:unit-test",
                     "options": {
-                        "tsConfig": "projects/sake-components/tsconfig.spec.json"
+                        "runner": "vitest",
+                        "tsConfig": "projects/sake-components/tsconfig.spec.json",
+                        "buildTarget": "::development"
                     }
                 },
                 "lint": {
@@ -53,7 +55,7 @@
                         "outputPath": "dist/sake-components-docs",
                         "index": "projects/sake-components-docs/src/index.html",
                         "browser": "projects/sake-components-docs/src/main.ts",
-                        "polyfills": ["zone.js"],
+                        "polyfills": [],
                         "tsConfig": "projects/sake-components-docs/tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [
@@ -105,19 +107,11 @@
                     "builder": "@angular/build:extract-i18n"
                 },
                 "test": {
-                    "builder": "@angular/build:karma",
+                    "builder": "@angular/build:unit-test",
                     "options": {
-                        "polyfills": ["zone.js", "zone.js/testing"],
+                        "runner": "vitest",
                         "tsConfig": "projects/sake-components-docs/tsconfig.spec.json",
-                        "inlineStyleLanguage": "scss",
-                        "assets": [
-                            {
-                                "glob": "**/*",
-                                "input": "projects/sake-components-docs/public"
-                            }
-                        ],
-                        "styles": ["projects/sake-components-docs/src/styles.scss"],
-                        "scripts": []
+                        "buildTarget": "::development"
                     }
                 },
                 "lint": {
