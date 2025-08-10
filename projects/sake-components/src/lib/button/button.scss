@@ -1,0 +1,17 @@
+:host {
+    color: var(--primary-color-text);
+    background-color: var(--primary-color);
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        color: var(--primary-color-hover-text);
+        background-color: var(--primary-color-hover);
+    }
+
+    &:active {
+        cursor: pointer;
+        color: var(--primary-color-active-text);
+        background-color: var(--primary-color-active);
+    }
+}
