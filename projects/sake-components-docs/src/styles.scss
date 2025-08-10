@@ -1,1 +1,29 @@
+@use '../../../dist/sake-components/src/lib/theme' as sk;
 @import 'normalize.css';
+
+@include sk.sake-theme(
+    (
+        primary: indigo,
+        secondary: gray,
+        info: light-blue,
+        success: green,
+        warn: orange,
+        danger: red,
+    )
+);
+
+html {
+    height: 100dvh;
+    color-scheme: light dark;
+    color: #1a1a1a;
+
+    [data-theme='dark'] {
+        color: #e4e4e4;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+            color: #e4e4e4;
+        }
+    }
+}

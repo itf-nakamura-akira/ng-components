@@ -1,17 +1,71 @@
-:host {
-    color: var(--primary-color-text);
-    background-color: var(--primary-color);
+@mixin button-color-theme($name) {
+    color: var(--#{$name}-color-text);
+    background-color: var(--#{$name}-color);
+    border: 1px solid var(--#{$name}-color);
 
     &:hover,
     &:focus {
-        cursor: pointer;
-        color: var(--primary-color-hover-text);
-        background-color: var(--primary-color-hover);
+        background-color: var(--#{$name}-color-hover);
     }
 
     &:active {
+        background-color: var(--#{$name}-color-active);
+    }
+
+    &:disabled,
+    &.disabled {
+        color: var(--#{$name}-color-disabled-text);
+        background-color: var(--#{$name}-color-disabled);
+        border: 1px solid var(--#{$name}-color-disabled);
+    }
+}
+
+// List of theme colors to generate button variants
+$button-themes: 'primary', 'secondary', 'info', 'success', 'warn', 'danger';
+
+:host {
+    &button {
+        border-radius: 0.375rem;
         cursor: pointer;
-        color: var(--primary-color-active-text);
-        background-color: var(--primary-color-active);
+        padding: 0 0.8333rem;
+        height: var(--medium-height);
+
+        &:disabled,
+        &.disabled {
+            cursor: not-allowed;
+        }
+
+        // The `color` input defaults to 'primary', so the .primary class will be
+        // applied by default. We use a mixin and a loop to generate the styles for
+        // each color variant.
+        @each $theme in $button-themes {
+            &.#{$theme} {
+                @include button-color-theme($theme);
+            }
+        }
+    }
+
+    &input[type='file'] {
+        &:disabled,
+        &.disabled {
+            cursor: not-allowed;
+        }
+
+        // Common styles for the file selector button
+        &::file-selector-button {
+            border-radius: 0.375rem;
+            cursor: pointer;
+            padding: 0 0.8333rem;
+            height: var(--medium-height);
+        }
+
+        // The `color` input defaults to 'primary', so the .primary class will be
+        // applied by default. We use a mixin and a loop to generate the styles for
+        // each color variant.
+        @each $theme in $button-themes {
+            &.#{$theme}::file-selector-button {
+                @include button-color-theme($theme);
+            }
+        }
     }
 }
