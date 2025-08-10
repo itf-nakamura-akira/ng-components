@@ -7,7 +7,7 @@
             "projectType": "library",
             "root": "projects/sake-components",
             "sourceRoot": "projects/sake-components/src",
-            "prefix": "lib",
+            "prefix": "sk",
             "architect": {
                 "build": {
                     "builder": "@angular/build:ng-packagr",

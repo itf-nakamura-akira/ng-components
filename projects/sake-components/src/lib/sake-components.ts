@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'lib-sake-components',
+    selector: 'sk-sake-components',
     imports: [],
     template: ` <p>sake-components works!</p> `,
     styles: ``,
