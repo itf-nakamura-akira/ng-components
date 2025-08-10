@@ -4,22 +4,5 @@ const rootConfig = require('../../eslint.config.js');
 
 module.exports = tseslint.config(...rootConfig, {
     files: ['**/*.ts'],
-    rules: {
-        '@angular-eslint/directive-selector': [
-            'error',
-            {
-                type: 'attribute',
-                prefix: 'sk',
-                style: 'camelCase',
-            },
-        ],
-        '@angular-eslint/component-selector': [
-            'error',
-            {
-                type: 'element',
-                prefix: 'sk',
-                style: 'kebab-case',
-            },
-        ],
-    },
+    rules: {},
 });

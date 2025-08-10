@@ -3,7 +3,8 @@
     "schematics": {
         "@schematics/angular": {
             "component": {
-                "changeDetection": "OnPush"
+                "changeDetection": "OnPush",
+                "style": "scss"
             }
         }
     },
@@ -47,11 +48,6 @@
         },
         "sake-components-docs": {
             "projectType": "application",
-            "schematics": {
-                "@schematics/angular:component": {
-                    "style": "scss"
-                }
-            },
             "root": "projects/sake-components-docs",
             "sourceRoot": "projects/sake-components-docs/src",
             "prefix": "app",
@@ -71,7 +67,10 @@
                                 "input": "projects/sake-components-docs/public"
                             }
                         ],
-                        "styles": ["projects/sake-components-docs/src/styles.scss"],
+                        "styles": [
+                            "dist/sake-components/src/lib/_theme.scss",
+                            "projects/sake-components-docs/src/styles.scss"
+                        ],
                         "scripts": []
                     },
                     "configurations": {

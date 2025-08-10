@@ -3,5 +3,6 @@
     "dest": "../../dist/sake-components",
     "lib": {
         "entryFile": "src/public-api.ts"
-    }
+    },
+    "assets": ["src/lib/_theme.scss"]
 }
