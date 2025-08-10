@@ -1,5 +1,5 @@
 {
-	"name": "@akr/ng-components",
+    "name": "@akr/ng-components",
     "dockerComposeFile": "docker-compose.yml",
     "service": "ng-components",
     "workspaceFolder": "/workspace",
