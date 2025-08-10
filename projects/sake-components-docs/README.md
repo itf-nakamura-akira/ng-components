@@ -1,5 +1,6 @@
-# ng-components
-A collection of components for Angular.
+# SakeComponentsDocs
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
 
 ## Development server
 
