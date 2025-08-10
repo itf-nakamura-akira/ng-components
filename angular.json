@@ -26,6 +26,13 @@
                     "options": {
                         "tsConfig": "projects/sake-components/tsconfig.spec.json"
                     }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": ["projects/sake-components/**/*.ts", "projects/sake-components/**/*.html"],
+                        "eslintConfig": "projects/sake-components/eslint.config.js"
+                    }
                 }
             }
         },
@@ -111,6 +118,16 @@
                         ],
                         "styles": ["projects/sake-components-docs/src/styles.scss"],
                         "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "projects/sake-components-docs/**/*.ts",
+                            "projects/sake-components-docs/**/*.html"
+                        ],
+                        "eslintConfig": "projects/sake-components-docs/eslint.config.js"
                     }
                 }
             }
