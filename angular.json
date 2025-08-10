@@ -67,10 +67,7 @@
                                 "input": "projects/sake-components-docs/public"
                             }
                         ],
-                        "styles": [
-                            "dist/sake-components/src/lib/_theme.scss",
-                            "projects/sake-components-docs/src/styles.scss"
-                        ],
+                        "styles": ["projects/sake-components-docs/src/styles.scss"],
                         "scripts": []
                     },
                     "configurations": {

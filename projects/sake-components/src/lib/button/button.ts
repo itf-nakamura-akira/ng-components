@@ -1,9 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, booleanAttribute } from '@angular/core';
+import { Color } from '../color';
 
+/**
+ * Component attribute.
+ */
 const attribute = 'sk-button';
 
 /**
- * Button Component
+ * Button Component.
  */
 @Component({
     selector: `
@@ -15,8 +19,21 @@ const attribute = 'sk-button';
     templateUrl: './button.html',
     host: {
         class: `${attribute}`,
+        '[class]': 'color()',
+        '[class.disabled]': 'disabled()',
+        '[attr.disabled]': 'disabled() ? "" : null',
     },
     styleUrl: './button.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Button {}
+export class Button {
+    /**
+     * Button color.
+     */
+    readonly color = input<Color>('primary');
+
+    /**
+     * Whether the button is disabled.
+     */
+    readonly disabled = input(false, { transform: booleanAttribute });
+}
