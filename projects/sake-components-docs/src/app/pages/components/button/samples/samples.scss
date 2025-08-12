@@ -1,4 +1,6 @@
 .container {
+    display: flex;
+    gap: 1rem;
     padding: 2rem;
 
     &.light {
@@ -7,9 +9,5 @@
 
     &.dark {
         background-color: black;
-    }
-
-    button {
-        margin-left: 0.5rem;
     }
 }

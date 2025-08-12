@@ -437,7 +437,10 @@ $palettes: (
 $themes: 'primary', 'secondary', 'info', 'success', 'warn', 'danger';
 
 :root {
-    --small-height: 2rem;
     --medium-height: 2.25rem;
-    --large-height: 2.5rem;
+    --small-height: calc(var(--medium-height) - 0.25rem);
+    --large-height: calc(var(--medium-height) + 0.25rem);
+    --medium-font-size: 1rem;
+    --small-font-size: calc(var(--medium-font-size) * 0.875);
+    --large-font-size: calc(var(--medium-font-size) * 1.125);
 }

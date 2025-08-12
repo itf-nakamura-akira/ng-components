@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, booleanAttribute } from '@angular/core';
 import { Color } from '../color';
+import { Size } from '../size';
 
 /**
  * Component attribute.
@@ -19,7 +20,7 @@ const attribute = 'sk-button';
     templateUrl: './button.html',
     host: {
         class: `${attribute}`,
-        '[class]': 'color()',
+        '[class]': 'color() + " " + size()',
         '[class.disabled]': 'disabled()',
         '[attr.disabled]': 'disabled() ? "" : null',
     },
@@ -31,6 +32,11 @@ export class Button {
      * Button color.
      */
     readonly color = input<Color>('primary');
+
+    /**
+     * Button size.
+     */
+    readonly size = input<Size>('medium');
 
     /**
      * Whether the button is disabled.
