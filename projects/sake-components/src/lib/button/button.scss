@@ -1,3 +1,5 @@
+@use '../variable' as var;
+
 @mixin button-color-theme($name) {
     color: var(--#{$name}-color-text);
     background-color: var(--#{$name}-color);
@@ -20,9 +22,6 @@
     }
 }
 
-// List of theme colors to generate button variants
-$button-themes: 'primary', 'secondary', 'info', 'success', 'warn', 'danger';
-
 :host {
     &button {
         border-radius: 0.375rem;
@@ -38,7 +37,7 @@ $button-themes: 'primary', 'secondary', 'info', 'success', 'warn', 'danger';
         // The `color` input defaults to 'primary', so the .primary class will be
         // applied by default. We use a mixin and a loop to generate the styles for
         // each color variant.
-        @each $theme in $button-themes {
+        @each $theme in var.$themes {
             &.#{$theme} {
                 @include button-color-theme($theme);
             }
@@ -62,7 +61,7 @@ $button-themes: 'primary', 'secondary', 'info', 'success', 'warn', 'danger';
         // The `color` input defaults to 'primary', so the .primary class will be
         // applied by default. We use a mixin and a loop to generate the styles for
         // each color variant.
-        @each $theme in $button-themes {
+        @each $theme in var.$themes {
             &.#{$theme}::file-selector-button {
                 @include button-color-theme($theme);
             }
