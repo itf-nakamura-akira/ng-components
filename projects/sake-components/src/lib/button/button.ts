@@ -1,4 +1,5 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Appearance } from '../appearance';
 import { Color } from '../color';
 import { Size } from '../size';
 
@@ -20,7 +21,7 @@ const attribute = 'sk-button';
     templateUrl: './button.html',
     host: {
         class: `${attribute}`,
-        '[class]': 'color() + " " + size()',
+        '[class]': 'color() + " " + size() + " " + appearance()',
         '[class.disabled]': 'disabled()',
         '[attr.disabled]': 'disabled() ? "" : null',
     },
@@ -28,6 +29,11 @@ const attribute = 'sk-button';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Button {
+    /**
+     * Button appearance.
+     */
+    readonly appearance = input<Appearance>('filled');
+
     /**
      * Button color.
      */
