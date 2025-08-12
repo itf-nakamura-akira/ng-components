@@ -1,0 +1,443 @@
+/*
+ * ==========================================================================
+ * Color Palette
+ * ==========================================================================
+ * Defines the color variables for both light and dark themes.
+ * These are defined as CSS Custom Properties on the :root, so they are
+ * available globally.
+ *
+ * https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors
+ */
+$palettes: (
+    indigo: (
+        light: (
+            default: #3f51b5,
+            hover: #303f9f,
+            active: #1a237e,
+            disabled: #9fa8da,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #9fa8da,
+            hover: #7986cb,
+            active: #5c6bc0,
+            disabled: #283593,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    pink: (
+        light: (
+            default: #e91e63,
+            hover: #c2185b,
+            active: #880e4f,
+            disabled: #f8bbd0,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #f48fb1,
+            hover: #f06292,
+            active: #ec407a,
+            disabled: #880e4f,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    teal: (
+        light: (
+            default: #009688,
+            hover: #00796b,
+            active: #004d40,
+            disabled: #b2dfdb,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #80cbc4,
+            hover: #4db6ac,
+            active: #26a69a,
+            disabled: #004d40,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    red: (
+        light: (
+            default: #f44336,
+            hover: #d32f2f,
+            active: #b71c1c,
+            disabled: #ef9a9a,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #ef9a9a,
+            hover: #e57373,
+            active: #ef5350,
+            disabled: #c62828,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    purple: (
+        light: (
+            default: #9c27b0,
+            hover: #7b1fa2,
+            active: #4a148c,
+            disabled: #ce93d8,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #ce93d8,
+            hover: #ba68c8,
+            active: #ab47bc,
+            disabled: #6a1b9a,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    'deep-purple': (
+        light: (
+            default: #673ab7,
+            hover: #512da8,
+            active: #311b92,
+            disabled: #b39ddb,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #b39ddb,
+            hover: #9575cd,
+            active: #7e57c2,
+            disabled: #4527a0,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    blue: (
+        light: (
+            default: #2196f3,
+            hover: #1976d2,
+            active: #0d47a1,
+            disabled: #90caf9,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #90caf9,
+            hover: #64b5f6,
+            active: #42a5f5,
+            disabled: #1565c0,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    'light-blue': (
+        light: (
+            default: #03a9f4,
+            hover: #0288d1,
+            active: #01579b,
+            disabled: #81d4fa,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #81d4fa,
+            hover: #4fc3f7,
+            active: #29b6f6,
+            disabled: #0277bd,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    cyan: (
+        light: (
+            default: #00bcd4,
+            hover: #0097a7,
+            active: #006064,
+            disabled: #80deea,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #80deea,
+            hover: #4dd0e1,
+            active: #26c6da,
+            disabled: #00838f,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    green: (
+        light: (
+            default: #4caf50,
+            hover: #388e3c,
+            active: #1b5e20,
+            disabled: #a5d6a7,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #a5d6a7,
+            hover: #81c784,
+            active: #66bb6a,
+            disabled: #2e7d32,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    'light-green': (
+        light: (
+            default: #8bc34a,
+            hover: #689f38,
+            active: #33691e,
+            disabled: #c5e1a5,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #c5e1a5,
+            hover: #aed581,
+            active: #9ccc65,
+            disabled: #558b2f,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    lime: (
+        light: (
+            default: #cddc39,
+            hover: #afb42b,
+            active: #827717,
+            disabled: #e6ee9c,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #e6ee9c,
+            hover: #dce775,
+            active: #d4e157,
+            disabled: #9e9d24,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    yellow: (
+        light: (
+            default: #ffeb3b,
+            hover: #fbc02d,
+            active: #f57f17,
+            disabled: #fff59d,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #fff59d,
+            hover: #fff176,
+            active: #ffee58,
+            disabled: #f9a825,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    amber: (
+        light: (
+            default: #ffc107,
+            hover: #ffa000,
+            active: #ff6f00,
+            disabled: #ffe082,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #ffe082,
+            hover: #ffd54f,
+            active: #ffca28,
+            disabled: #ff8f00,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    orange: (
+        light: (
+            default: #ff9800,
+            hover: #f57c00,
+            active: #e65100,
+            disabled: #ffcc80,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #ffcc80,
+            hover: #ffb74d,
+            active: #ffa726,
+            disabled: #ef6c00,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    'deep-orange': (
+        light: (
+            default: #ff5722,
+            hover: #e64a19,
+            active: #bf360c,
+            disabled: #ffab91,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #ffab91,
+            hover: #ff8a65,
+            active: #ff7043,
+            disabled: #d84315,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    brown: (
+        light: (
+            default: #795548,
+            hover: #5d4037,
+            active: #3e2723,
+            disabled: #bcaaa4,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #bcaaa4,
+            hover: #a1887f,
+            active: #8d6e63,
+            disabled: #4e342e,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    gray: (
+        light: (
+            default: #f1f1f1,
+            hover: #e2e2e2,
+            active: #cbcbcb,
+            disabled: #fafafa,
+            text: (
+                default: #414141,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #eeeeee,
+            hover: #e0e0e0,
+            active: #bdbdbd,
+            disabled: #424242,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+    'blue-gray': (
+        light: (
+            default: #607d8b,
+            hover: #455a64,
+            active: #263238,
+            disabled: #b0bec5,
+            text: (
+                default: #ffffff,
+                disabled: #888888,
+            ),
+        ),
+        dark: (
+            default: #b0bec5,
+            hover: #90a4ae,
+            active: #78909c,
+            disabled: #37474f,
+            text: (
+                default: #000000,
+                disabled: #888888,
+            ),
+        ),
+    ),
+);
+
+/*
+ * A list of theme names that can be configured in the `sake-theme` mixin.
+ * These names (e.g., 'primary', 'secondary') are used as prefixes for the generated
+ * CSS custom properties (e.g., --primary-color, --secondary-color).
+ */
+$themes: 'primary', 'secondary', 'info', 'success', 'warn', 'danger';
+
+:root {
+    --small-height: 2rem;
+    --medium-height: 2.25rem;
+    --large-height: 2.5rem;
+}
