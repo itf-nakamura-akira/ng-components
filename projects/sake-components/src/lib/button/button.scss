@@ -1,14 +1,13 @@
 @use '../variable' as var;
 
 /**
- * Sets the color theme for a button or a button-like pseudo-element.
+ * Sets the color theme for a button based on its variant (filled, outlined, text).
  *
  * @param {string} $name - The name of the theme (e.g., 'primary', 'secondary').
- *   This name is used to look up CSS custom properties for different states
- *   (default, hover, active, disabled).
+ * @param {string} $variant - The button variant ('filled', 'outlined', 'text').
  * @param {string | null} $pseudo-element - The name of the pseudo-element to style, if any (e.g., 'file-selector-button').
  */
-@mixin _button-theme($name, $pseudo-element: null) {
+@mixin _button-variant-theme($name, $variant, $pseudo-element: null) {
     $target-selector: if($pseudo-element, '&::#{$pseudo-element}', '&');
     $disabled-target-selector: if(
         $pseudo-element,
@@ -17,24 +16,47 @@
     );
 
     #{$target-selector} {
-        color: var(--#{$name}-color-text);
-        background-color: var(--#{$name}-color);
-        border: 1px solid var(--#{$name}-color);
+        @if $variant == 'filled' {
+            color: var(--#{$name}-color-text);
+            background-color: var(--#{$name}-color);
+            border: 1px solid var(--#{$name}-color);
 
-        &:hover,
-        &:focus {
-            background-color: var(--#{$name}-color-hover);
-        }
+            &:hover,
+            &:focus {
+                background-color: var(--#{$name}-color-hover);
+            }
 
-        &:active {
-            background-color: var(--#{$name}-color-active);
+            &:active {
+                background-color: var(--#{$name}-color-active);
+            }
+        } @else {
+            // Common styles for 'outlined' and 'text'
+            color: var(--#{$name}-color);
+            background-color: transparent;
+            border: 1px solid if($variant == 'outlined', var(--#{$name}-color), transparent);
+
+            &:hover,
+            &:focus {
+                background-color: var(--#{$name}-color-subtle-hover);
+            }
+
+            &:active {
+                background-color: var(--#{$name}-color-subtle-active);
+            }
         }
     }
 
     #{$disabled-target-selector} {
-        color: var(--#{$name}-color-disabled-text);
-        background-color: var(--#{$name}-color-disabled);
-        border: 1px solid var(--#{$name}-color-disabled);
+        @if $variant == 'filled' {
+            color: var(--#{$name}-color-disabled-text);
+            background-color: var(--#{$name}-color-disabled);
+            border: 1px solid var(--#{$name}-color-disabled);
+        } @else {
+            // Common styles for 'outlined' and 'text'
+            color: var(--#{$name}-color-disabled);
+            background-color: transparent;
+            border: 1px solid if($variant == 'outlined', var(--#{$name}-color-disabled), transparent);
+        }
     }
 }
 
@@ -71,6 +93,26 @@
     }
 }
 
+/**
+ * Applies all theme variants (filled, outlined, text) to a button or a button-like pseudo-element.
+ * It iterates through the available themes and variants, applying the corresponding styles.
+ *
+ * @param {string | null} $pseudo-element - The name of the pseudo-element to style, if any.
+ */
+@mixin _apply-button-themes($pseudo-element: null) {
+    $variants: 'filled', 'outlined', 'text';
+
+    @each $theme in var.$themes {
+        &.#{$theme} {
+            @each $variant in $variants {
+                &.#{$variant} {
+                    @include _button-variant-theme($theme, $variant, $pseudo-element);
+                }
+            }
+        }
+    }
+}
+
 // Styles for `<button>` and `<input type="button">` elements with the `sk-button` attribute.
 :host(:is(button, input[type='button'])) {
     @include _button-size-variables;
@@ -81,12 +123,7 @@
         cursor: not-allowed;
     }
 
-    // Loop through the defined themes and apply the color mixin for each.
-    @each $theme in var.$themes {
-        &.#{$theme} {
-            @include _button-theme($theme);
-        }
-    }
+    @include _apply-button-themes();
 }
 
 // Styles for `<input type="file">` elements with the `sk-button` attribute.
@@ -108,10 +145,5 @@
         }
     }
 
-    // Loop through the defined themes and apply the color mixin for each to the pseudo-element.
-    @each $theme in var.$themes {
-        &.#{$theme} {
-            @include _button-theme($theme, 'file-selector-button');
-        }
-    }
+    @include _apply-button-themes('file-selector-button');
 }

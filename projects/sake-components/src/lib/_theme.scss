@@ -13,12 +13,17 @@
 @mixin _set-theme-properties($prefix, $palette-name, $theme-name) {
     $palette: map.get(var.$palettes, $palette-name);
     $theme: map.get($palette, $theme-name);
+    $default-color: map.get($theme, 'default');
     $text-theme: map.get($theme, 'text');
+    $subtle-hover-opacity: if($theme-name == dark, 0.24, 0.16);
+    $subtle-active-opacity: if($theme-name == dark, 0.36, 0.24);
 
-    --#{$prefix}-color: #{map.get($theme, 'default')};
+    --#{$prefix}-color: #{$default-color};
     --#{$prefix}-color-hover: #{map.get($theme, 'hover')};
     --#{$prefix}-color-active: #{map.get($theme, 'active')};
     --#{$prefix}-color-disabled: #{map.get($theme, 'disabled')};
+    --#{$prefix}-color-subtle-hover: #{rgba($default-color, $subtle-hover-opacity)};
+    --#{$prefix}-color-subtle-active: #{rgba($default-color, $subtle-active-opacity)};
 
     --#{$prefix}-color-text: #{map.get($text-theme, 'default')};
     --#{$prefix}-color-disabled-text: #{map.get($text-theme, 'disabled')};
