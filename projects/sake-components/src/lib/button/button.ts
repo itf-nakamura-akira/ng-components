@@ -1,5 +1,4 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Appearance } from '../appearance';
 import { Color } from '../color';
 import { Size } from '../size';
 
@@ -7,6 +6,14 @@ import { Size } from '../size';
  * Component attribute.
  */
 const attribute = 'sk-button';
+
+/**
+ * Defines the possible appearance styles for a Button component.
+ * - `filled`: The component has a solid background color.
+ * - `outlined`: The component has a transparent background and a visible border.
+ * - `text`: The component has a transparent background and no visible border.
+ */
+export type ButtonAppearance = 'filled' | 'outlined' | 'text';
 
 /**
  * Button Component.
@@ -33,7 +40,7 @@ export class Button {
     /**
      * Button appearance.
      */
-    readonly appearance = input<Appearance>('filled');
+    readonly appearance = input<ButtonAppearance>('filled');
 
     /**
      * Button color.
