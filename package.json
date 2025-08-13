@@ -1,6 +1,6 @@
 {
     "name": "sake-components",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "scripts": {
         "lib: start": "ng build sake-components --watch --configuration development",
         "lib: build": "ng build sake-components",
