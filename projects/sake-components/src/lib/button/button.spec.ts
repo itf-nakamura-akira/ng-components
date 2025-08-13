@@ -1,10 +1,9 @@
 import { Component, provideZonelessChangeDetection, signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Appearance } from '../appearance';
 import { Color } from '../color';
 import { Size } from '../size';
-import { Button } from './button';
+import { Button, ButtonAppearance } from './button';
 
 @Component({
     template: `
@@ -23,7 +22,7 @@ import { Button } from './button';
     imports: [Button],
 })
 class TestHostComponent {
-    appearance = signal<Appearance>('filled');
+    appearance = signal<ButtonAppearance>('filled');
     color = signal<Color>('primary');
     size = signal<Size>('medium');
     disabled = signal<boolean | string>(false);
