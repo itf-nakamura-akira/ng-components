@@ -13,6 +13,9 @@
         "experimentalDecorators": true,
         "importHelpers": true,
         "target": "ES2022",
+        "paths": {
+            "sake-components": ["./node_modules/sake-components"]
+        },
         "module": "preserve"
     },
     "angularCompilerOptions": {
