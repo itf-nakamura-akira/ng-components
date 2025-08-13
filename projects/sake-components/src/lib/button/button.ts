@@ -23,6 +23,7 @@ const attribute = 'sk-button';
         class: `${attribute}`,
         '[class]': 'color() + " " + size() + " " + appearance()',
         '[class.disabled]': 'disabled()',
+        '[class.rounded]': 'rounded()',
         '[attr.disabled]': 'disabled() ? "" : null',
     },
     styleUrl: './button.scss',
@@ -48,4 +49,9 @@ export class Button {
      * Whether the button is disabled.
      */
     readonly disabled = input(false, { transform: booleanAttribute });
+
+    /**
+     * Whether the button is rounded.
+     */
+    readonly rounded = input(false, { transform: booleanAttribute });
 }

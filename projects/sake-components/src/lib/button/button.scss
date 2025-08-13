@@ -118,6 +118,10 @@
     @include _button-size-variables;
     @include _button-appearance;
 
+    &.rounded {
+        border-radius: 9999px;
+    }
+
     &:disabled,
     &.disabled {
         cursor: not-allowed;
@@ -131,6 +135,12 @@
 // the button part of the file input.
 :host(input[type='file']) {
     @include _button-size-variables;
+
+    &.rounded {
+        &::file-selector-button {
+            border-radius: 9999px;
+        }
+    }
 
     &::file-selector-button {
         @include _button-appearance;

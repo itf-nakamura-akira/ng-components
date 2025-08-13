@@ -8,7 +8,14 @@ import { Button } from './button';
 
 @Component({
     template: `
-        <button sk-button [appearance]="appearance()" [color]="color()" [size]="size()" [disabled]="disabled()">
+        <button
+            sk-button
+            [appearance]="appearance()"
+            [color]="color()"
+            [size]="size()"
+            [disabled]="disabled()"
+            [rounded]="rounded()"
+        >
             Test Button
         </button>
     `,
@@ -20,6 +27,7 @@ class TestHostComponent {
     color = signal<Color>('primary');
     size = signal<Size>('medium');
     disabled = signal<boolean | string>(false);
+    rounded = signal<boolean | string>(false);
 }
 
 describe('Button', () => {
@@ -126,6 +134,40 @@ describe('Button', () => {
             await fixture.whenStable();
             expect(buttonEl.classList.contains('disabled')).toBe(false);
             expect(buttonEl.hasAttribute('disabled')).toBe(false);
+        });
+    });
+
+    it('should not have the rounded class by default', () => {
+        expect(buttonEl.classList.contains('rounded')).toBe(false);
+    });
+
+    describe('rounded input', () => {
+        it('should add the rounded class when `rounded` is true', async () => {
+            component.rounded.set(true);
+            await fixture.whenStable();
+            expect(buttonEl.classList.contains('rounded')).toBe(true);
+        });
+
+        it('should remove the rounded class when `rounded` is false', async () => {
+            component.rounded.set(true);
+            await fixture.whenStable();
+            expect(buttonEl.classList.contains('rounded')).toBe(true);
+
+            component.rounded.set(false);
+            await fixture.whenStable();
+            expect(buttonEl.classList.contains('rounded')).toBe(false);
+        });
+
+        it('should be rounded when `rounded` input is an empty string', async () => {
+            component.rounded.set('');
+            await fixture.whenStable();
+            expect(buttonEl.classList.contains('rounded')).toBe(true);
+        });
+
+        it('should NOT be rounded when `rounded` input is the string "false"', async () => {
+            component.rounded.set('false');
+            await fixture.whenStable();
+            expect(buttonEl.classList.contains('rounded')).toBe(false);
         });
     });
 });
