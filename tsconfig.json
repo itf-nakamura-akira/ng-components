@@ -11,9 +11,6 @@
         "skipLibCheck": true,
         "isolatedModules": true,
         "experimentalDecorators": true,
-        "paths": {
-            "sake-components": ["./dist/sake-components"]
-        },
         "importHelpers": true,
         "target": "ES2022",
         "module": "preserve"
