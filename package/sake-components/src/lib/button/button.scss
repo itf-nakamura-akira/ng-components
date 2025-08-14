@@ -1,4 +1,4 @@
-@use '../variable' as var;
+@use "../variable" as var;
 
 /**
  * Sets the color theme for a button based on its variant (filled, outlined, text).
@@ -8,15 +8,15 @@
  * @param {string | null} $pseudo-element - The name of the pseudo-element to style, if any (e.g., 'file-selector-button').
  */
 @mixin _button-variant-theme($name, $variant, $pseudo-element: null) {
-    $target-selector: if($pseudo-element, '&::#{$pseudo-element}', '&');
+    $target-selector: if($pseudo-element, "&::#{$pseudo-element}", "&");
     $disabled-target-selector: if(
         $pseudo-element,
-        '&:disabled::#{$pseudo-element}, &.disabled::#{$pseudo-element}',
-        '&:disabled, &.disabled'
+        "&:disabled::#{$pseudo-element}, &.disabled::#{$pseudo-element}",
+        "&:disabled, &.disabled"
     );
 
     #{$target-selector} {
-        @if $variant == 'filled' {
+        @if $variant == "filled" {
             color: var(--#{$name}-color-text);
             background-color: var(--#{$name}-color);
             border: 1px solid var(--#{$name}-color);
@@ -33,7 +33,9 @@
             // Common styles for 'outlined' and 'text'
             color: var(--#{$name}-color);
             background-color: transparent;
-            border: 1px solid if($variant == 'outlined', var(--#{$name}-color), transparent);
+            border: 1px
+                solid
+                if($variant == "outlined", var(--#{$name}-color), transparent);
 
             &:hover,
             &:focus {
@@ -47,7 +49,7 @@
     }
 
     #{$disabled-target-selector} {
-        @if $variant == 'filled' {
+        @if $variant == "filled" {
             color: var(--#{$name}-color-disabled-text);
             background-color: var(--#{$name}-color-disabled);
             border: 1px solid var(--#{$name}-color-disabled);
@@ -55,7 +57,13 @@
             // Common styles for 'outlined' and 'text'
             color: var(--#{$name}-color-disabled);
             background-color: transparent;
-            border: 1px solid if($variant == 'outlined', var(--#{$name}-color-disabled), transparent);
+            border: 1px
+                solid
+                if(
+                    $variant == "outlined",
+                    var(--#{$name}-color-disabled),
+                    transparent
+                );
         }
     }
 }
@@ -100,13 +108,17 @@
  * @param {string | null} $pseudo-element - The name of the pseudo-element to style, if any.
  */
 @mixin _apply-button-themes($pseudo-element: null) {
-    $variants: 'filled', 'outlined', 'text';
+    $variants: "filled", "outlined", "text";
 
     @each $theme in var.$themes {
         &.#{$theme} {
             @each $variant in $variants {
                 &.#{$variant} {
-                    @include _button-variant-theme($theme, $variant, $pseudo-element);
+                    @include _button-variant-theme(
+                        $theme,
+                        $variant,
+                        $pseudo-element
+                    );
                 }
             }
         }
@@ -114,7 +126,7 @@
 }
 
 // Styles for `<button>` and `<input type="button">` elements with the `sk-button` attribute.
-:host(:is(button, input[type='button'])) {
+:host(:is(button, input[type="button"])) {
     @include _button-size-variables;
     @include _button-appearance;
 
@@ -133,7 +145,7 @@
 // Styles for `<input type="file">` elements with the `sk-button` attribute.
 // These styles target the `::file-selector-button` pseudo-element to style
 // the button part of the file input.
-:host(input[type='file']) {
+:host(input[type="file"]) {
     @include _button-size-variables;
 
     &.rounded {
@@ -155,5 +167,5 @@
         }
     }
 
-    @include _apply-button-themes('file-selector-button');
+    @include _apply-button-themes("file-selector-button");
 }

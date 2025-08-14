@@ -1,4 +1,9 @@
-import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+    booleanAttribute,
+    ChangeDetectionStrategy,
+    Component,
+    input,
+} from '@angular/core';
 import { Color } from '../color';
 import { Size } from '../size';
 

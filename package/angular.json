@@ -1,0 +1,54 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "schematics": {
+        "@schematics/angular": {
+            "component": {
+                "changeDetection": "OnPush",
+                "style": "scss"
+            }
+        }
+    },
+    "version": 1,
+    "projects": {
+        "sake-components": {
+            "projectType": "library",
+            "root": "sake-components",
+            "sourceRoot": "sake-components/src",
+            "prefix": "sk",
+            "architect": {
+                "build": {
+                    "builder": "@angular/build:ng-packagr",
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "sake-components/tsconfig.lib.prod.json"
+                        },
+                        "development": {
+                            "tsConfig": "sake-components/tsconfig.lib.json",
+                            "watch": true,
+                            "project": "sake-components/ng-package.development.json"
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "test": {
+                    "builder": "@angular/build:unit-test",
+                    "options": {
+                        "runner": "vitest",
+                        "tsConfig": "sake-components/tsconfig.spec.json",
+                        "buildTarget": "::development"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": ["**/*.ts", "**/*.html"],
+                        "eslintConfig": "eslint.config.js"
+                    }
+                }
+            }
+        }
+    },
+    "cli": {
+        "analytics": "46f41551-77d4-42f3-a433-062d623d0e56"
+    }
+}

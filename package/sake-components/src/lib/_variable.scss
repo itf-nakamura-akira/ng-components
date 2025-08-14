@@ -119,7 +119,7 @@ $palettes: (
             ),
         ),
     ),
-    'deep-purple': (
+    "deep-purple": (
         light: (
             default: #673ab7,
             hover: #512da8,
@@ -163,7 +163,7 @@ $palettes: (
             ),
         ),
     ),
-    'light-blue': (
+    "light-blue": (
         light: (
             default: #03a9f4,
             hover: #0288d1,
@@ -229,7 +229,7 @@ $palettes: (
             ),
         ),
     ),
-    'light-green': (
+    "light-green": (
         light: (
             default: #8bc34a,
             hover: #689f38,
@@ -339,7 +339,7 @@ $palettes: (
             ),
         ),
     ),
-    'deep-orange': (
+    "deep-orange": (
         light: (
             default: #ff5722,
             hover: #e64a19,
@@ -405,7 +405,7 @@ $palettes: (
             ),
         ),
     ),
-    'blue-gray': (
+    "blue-gray": (
         light: (
             default: #607d8b,
             hover: #455a64,
@@ -434,7 +434,7 @@ $palettes: (
  * These names (e.g., 'primary', 'secondary') are used as prefixes for the generated
  * CSS custom properties (e.g., --primary-color, --secondary-color).
  */
-$themes: 'primary', 'secondary', 'info', 'success', 'warn', 'danger';
+$themes: "primary", "secondary", "info", "success", "warn", "danger";
 
 :root {
     --medium-height: 2.25rem;
