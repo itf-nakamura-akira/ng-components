@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use './variable' as var;
+@use "sass:map";
+@use "./variable" as var;
 
 /**
  * Sets the CSS custom properties for a specific theme.
@@ -13,20 +13,26 @@
 @mixin _set-theme-properties($prefix, $palette-name, $theme-name) {
     $palette: map.get(var.$palettes, $palette-name);
     $theme: map.get($palette, $theme-name);
-    $default-color: map.get($theme, 'default');
-    $text-theme: map.get($theme, 'text');
+    $default-color: map.get($theme, "default");
+    $text-theme: map.get($theme, "text");
     $subtle-hover-opacity: if($theme-name == dark, 0.24, 0.16);
     $subtle-active-opacity: if($theme-name == dark, 0.36, 0.24);
 
     --#{$prefix}-color: #{$default-color};
-    --#{$prefix}-color-hover: #{map.get($theme, 'hover')};
-    --#{$prefix}-color-active: #{map.get($theme, 'active')};
-    --#{$prefix}-color-disabled: #{map.get($theme, 'disabled')};
-    --#{$prefix}-color-subtle-hover: #{rgba($default-color, $subtle-hover-opacity)};
-    --#{$prefix}-color-subtle-active: #{rgba($default-color, $subtle-active-opacity)};
+    --#{$prefix}-color-hover: #{map.get($theme, "hover")};
+    --#{$prefix}-color-active: #{map.get($theme, "active")};
+    --#{$prefix}-color-disabled: #{map.get($theme, "disabled")};
+    --#{$prefix}-color-subtle-hover: #{rgba(
+            $default-color,
+            $subtle-hover-opacity
+        )};
+    --#{$prefix}-color-subtle-active: #{rgba(
+            $default-color,
+            $subtle-active-opacity
+        )};
 
-    --#{$prefix}-color-text: #{map.get($text-theme, 'default')};
-    --#{$prefix}-color-disabled-text: #{map.get($text-theme, 'disabled')};
+    --#{$prefix}-color-text: #{map.get($text-theme, "default")};
+    --#{$prefix}-color-disabled-text: #{map.get($text-theme, "disabled")};
 }
 
 /**
@@ -68,11 +74,11 @@
             @include _apply-theme-colors(dark, $theme-map);
         }
 
-        [data-theme='light'] {
+        [data-theme="light"] {
             @include _apply-theme-colors(light, $theme-map);
         }
 
-        [data-theme='dark'] {
+        [data-theme="dark"] {
             @include _apply-theme-colors(dark, $theme-map);
         }
     }
@@ -89,11 +95,11 @@
             color: $text-color-dark;
         }
 
-        [data-theme='light'] {
+        [data-theme="light"] {
             color: $text-color-light;
         }
 
-        [data-theme='dark'] {
+        [data-theme="dark"] {
             color: $text-color-dark;
         }
     }

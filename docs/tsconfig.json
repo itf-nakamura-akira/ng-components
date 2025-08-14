@@ -13,9 +13,6 @@
         "experimentalDecorators": true,
         "importHelpers": true,
         "target": "ES2022",
-        "paths": {
-            "sake-components": ["./node_modules/sake-components"]
-        },
         "module": "preserve"
     },
     "angularCompilerOptions": {
@@ -28,16 +25,10 @@
     "files": [],
     "references": [
         {
-            "path": "./projects/sake-components/tsconfig.lib.json"
+            "path": "./tsconfig.app.json"
         },
         {
-            "path": "./projects/sake-components/tsconfig.spec.json"
-        },
-        {
-            "path": "./projects/sake-components-docs/tsconfig.app.json"
-        },
-        {
-            "path": "./projects/sake-components-docs/tsconfig.spec.json"
+            "path": "./tsconfig.spec.json"
         }
     ]
 }

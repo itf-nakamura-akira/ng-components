@@ -1,17 +1,14 @@
 {
-    "name": "sake-components",
+    "name": "sake-components-docs",
     "version": "0.1.1",
+    "private": false,
     "scripts": {
-        "lib: start": "ng build sake-components --watch --configuration development",
-        "lib: build": "ng build sake-components",
-        "lib: test": "ng test sake-components",
-        "docs: start": "ng serve sake-components-docs --host 0.0.0.0",
-        "docs: build": "ng build sake-components-docs",
-        "docs: test": "ng test sake-components-docs",
+        "start": "ng serve --host 0.0.0.0",
+        "build": "ng build",
+        "test": "ng test",
         "format": "prettier --write .",
         "lint:fix": "ng lint --fix"
     },
-    "private": true,
     "dependencies": {
         "@angular/common": "^20.1.0",
         "@angular/compiler": "^20.1.0",
